@@ -120,6 +120,16 @@ a:focus {
   background-color: var(--color-secondary);
 }
 
+
+.hero-subtitle {
+  font-size: 1.35rem;   /* increase size */
+  font-weight: 500;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-top: 1rem;
+  color: #6b63ff;       /* keeps the purple look */
+}
+
 /* Background image overlay */
 .hero-bg {
   position: absolute;
