@@ -1,21 +1,7 @@
-/*
-  Custom stylesheet for Vishwa Prakash Choudhary’s portfolio.
-  The design uses a cool palette with dark blues and teal accents to
-  reflect the cybersecurity theme while maintaining a clean, accessible
-  layout. Responsive techniques ensure the site looks great on both
-  desktops and mobile devices.
-*/
 
 /* Root colour variables for easy customisation */
 :root {
-  /*
-    Colour palette inspired by the reference portfolio.  The dark blues and
-    teals used previously have been swapped out for a softer, more inviting
-    scheme consisting of whites and purples.  Feel free to tweak these
-    values to match your personal style; the accent and highlight colours
-    should always contrast clearly against the backgrounds to remain
-    accessible.
-  */
+ 
   --color-primary: #ffffff;        /* Primary background for hero and cards */
   --color-secondary: #f5f2fc;      /* Light lavender for subtle section backgrounds */
   --color-accent: #6c63ff;         /* Purple accent used for headings and buttons */
@@ -137,9 +123,7 @@ a:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  /* The reference portfolio uses a clean hero without a busy background.
-     Replace the hero image with a very subtle pattern or leave it empty.
-     You can swap this out for a different graphic later if desired. */
+ 
   background-image: none;
   background-size: cover;
   background-position: center;
@@ -159,7 +143,7 @@ a:focus {
   z-index: -1;
 }
 
-/* Hero layout inspired by the reference: text on the left, photo on the right */
+/* Hero layout: text on the left, photo on the right */
 .hero-inner {
   width: min(1100px, 92vw);
   margin: 0 auto;
@@ -487,7 +471,7 @@ a:focus {
   white-space: nowrap;
 }
 
-/* Contact heading pill and bottom quick links (inspired by the reference) */
+/* Contact heading pill and bottom quick links  */
 .pill {
   display: inline-block;
   padding: 0.35rem 0.85rem;
