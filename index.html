@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    This portfolio website was generated automatically based on the user's résumé.
+    It features a modern, responsive design with clearly separated sections for
+    About, Projects, Experience, Skills, Education and Contact information.
+
+    The stylesheet and JavaScript files are kept in separate folders
+    (css/style.css and js/script.js) for maintainability. Icons are provided
+    via Font Awesome and custom fonts are loaded from Google Fonts. Feel free
+    to modify colours, fonts and layout in the CSS as desired.
+  -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishwa Prakash Choudhary | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font icons are provided via simple emoji to avoid external dependencies. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load the Poppins font for a friendly, modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <!-- Primary navigation bar -->
+    <nav class="navbar">
+      <div class="logo">Vishwa</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Hero content with photo and introductory text -->
+    <div class="hero-content">
+      <img src="images/profile.jpg" alt="Vishwa Prakash Choudhary portrait" class="profile-photo">
+      <h1>Vishwa&nbsp;Prakash&nbsp;Choudhary</h1>
+      <p class="subtitle">Cybersecurity &amp; Computer Science Student</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary-btn">View Projects</a>
+        <a href="documents/Resume.pdf" class="btn secondary-btn" download>Download Résumé</a>
+      </div>
+    </div>
+    <!-- Decorative background overlay for the hero section -->
+    <div class="hero-bg"></div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>I am a Computer Science student at the University of California, Davis, with a passion for cybersecurity and technology. My experience ranges from sales to technical support, where I developed strong communication skills and a deep understanding of secure data handling. I'm eager to leverage my knowledge of networks, cloud security, and system administration to help organisations protect their information and build resilient systems.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <!-- Emoji used instead of external icons for better offline support -->
+          <div class="project-icon">☁️</div>
+          <h3>Cloud Security Hardening</h3>
+          <p>Secured AWS infrastructure by configuring IAM roles with least‑privilege policies, enabling multi‑factor authentication, encrypting S3 buckets, enabling CloudTrail and GuardDuty, and automating security checks with Python and the AWS CLI. Gained hands‑on experience in cloud governance, auditing and DevSecOps best practices.</p>
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">IAM</span>
+            <span class="tag">Python</span>
+            <span class="tag">DevSecOps</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <!-- Globe emoji symbolising network traffic analysis -->
+          <div class="project-icon">🌐</div>
+          <h3>Wireshark Network Traffic Analysis</h3>
+          <p>Captured and analysed network traffic to detect insecure communications over protocols such as FTP and HTTP. Identified security flaws including plaintext credential exposure and DNS leaks, and compiled a report summarising findings and recommended mitigations.</p>
+          <div class="tags">
+            <span class="tag">Wireshark</span>
+            <span class="tag">Network</span>
+            <span class="tag">Security</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <!-- Lab test tube emoji for the virtual security lab project -->
+          <div class="project-icon">🧪</div>
+          <h3>Virtual Security Lab</h3>
+          <p>Built a simulated attack and defence environment using Kali Linux, Metasploitable2 and Security Onion. Conducted vulnerability scanning, exploitation and incident detection using tools like Nmap, Metasploit and Snort, and configured Splunk dashboards to visualise alerts and log patterns.</p>
+          <div class="tags">
+            <span class="tag">Kali Linux</span>
+            <span class="tag">Metasploitable2</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">Snort</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section with a vertical timeline -->
+    <section id="experience" class="section experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h3>Sales Specialist — Tenacity Solutions</h3>
+            <span class="date">Jun 2025 – Sep 2025</span>
+            <p>Drove revenue by engaging with customers, identifying their needs and providing tailored solutions to boost satisfaction and retention. Handled sensitive personal information securely, maintaining customer trust with zero incidents of data leakage. Gained familiarity with secure data practices and customer trust management.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h3>Help Desk — ISHONI Development Group</h3>
+            <span class="date">Dec 2022 – Jul 2023</span>
+            <p>Oversaw secure access to 500+ sensitive records, ensuring full compliance with confidentiality standards. Monitored official email channels to flag potential phishing attempts and suspicious links, helping prevent data breaches. Facilitated vendor meetings to ensure compliance with data security policies and reduced potential phishing exposure by 30 % through awareness initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-category">
+          <h3>Programming &amp; Scripting</h3>
+          <ul>
+            <li>Python</li>
+            <li>Bash</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Security &amp; Analysis Tools</h3>
+          <ul>
+            <li>Wireshark</li>
+            <li>Kali Linux</li>
+            <li>Splunk</li>
+            <li>Security Onion</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <ul>
+            <li>AWS (IAM, S3, CloudTrail, GuardDuty)</li>
+            <li>Virtualisation (VirtualBox/VMware)</li>
+            <li>Linux system administration</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Other</h3>
+          <ul>
+            <li>Networking fundamentals</li>
+            <li>Log analysis</li>
+            <li>Office 365</li>
+            <li>TeamViewer</li>
+          </ul>
+        </div>
+      </div>
+      <div class="certifications">
+        <h3>Certifications</h3>
+        <ul>
+          <li>Foundations of Cybersecurity (Google)</li>
+          <li>Play it Safe: Manage Security Risks (Google)</li>
+          <li>Cybersecurity Job Simulation (AIG)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>University of California, Davis</h3>
+        <span class="date">Expected Graduation: June 2026</span>
+        <p>Bachelor of Science in Computer Science. Relevant coursework includes Computer Networks, Cryptography and Operating Systems.</p>
+      </div>
+      <div class="education-item">
+        <h3>De Anza College</h3>
+        <span class="date">Sep 2022 – Jun 2024</span>
+        <p>Associate’s degree in Computer Science.</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out for collaboration or opportunities.</p>
+      <ul class="contact-list">
+        <li>📧 <a href="mailto:choudharyvishwaprakash480@gmail.com">choudharyvishwaprakash480@gmail.com</a></li>
+        <li>🔗 <a href="https://linkedin.com/in/vishwa-prakash-choudhary" target="_blank" rel="noopener">linkedin.com/in/vishwa-prakash-choudhary</a></li>
+        <li>📞 (408) 329‑8574</li>
+        <li>📍 Cupertino, CA</li>
+      </ul>
+
+      <!-- Social icons inspired by the reference portfolio.  Update the hrefs as needed -->
+      <div class="social-icons">
+        <a href="mailto:choudharyvishwaprakash480@gmail.com" aria-label="Email" title="Email">📧</a>
+        <a href="https://linkedin.com/in/vishwa-prakash-choudhary" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">🔗</a>
+        <!-- Optional GitHub icon. Replace '#' with your GitHub profile URL or remove this anchor if not applicable. -->
+        <a href="#" aria-label="GitHub" title="GitHub">🐱</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> Vishwa Prakash Choudhary. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to set the current year and enable responsive behaviours -->
+  <script src="js/script.js"></script>
+</body>
+</html>
