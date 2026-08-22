@@ -514,8 +514,28 @@ a:focus {
   box-shadow: var(--shadow-sm);
 }
 
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.timeline-header-left,
+.timeline-header-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-header-right {
+  text-align: right;
+  align-items: flex-end;
+}
+
 .timeline-content h3 {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   color: var(--color-heading);
   font-size: 1.1rem;
   font-weight: 600;
@@ -524,9 +544,26 @@ a:focus {
 .timeline-content .date {
   font-size: 0.85rem;
   color: var(--color-accent);
-  display: block;
-  margin-bottom: 0.85rem;
   font-weight: 500;
+}
+
+.timeline-content .company {
+  color: var(--color-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-content .location {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 520px) {
+  .timeline-header-right {
+    text-align: left;
+    align-items: flex-start;
+  }
 }
 
 .timeline-content ul {
@@ -947,8 +984,16 @@ a:focus {
         <div class="timeline-item">
           <div class="timeline-icon"></div>
           <div class="timeline-content">
-            <h3>IT Intern, Nokia</h3>
-            <span class="date">Jun 2026 — Present &middot; Sunnyvale, CA</span>
+            <div class="timeline-header">
+              <div class="timeline-header-left">
+                <h3>IT Intern</h3>
+                <span class="date">Jun 2026 — Present</span>
+              </div>
+              <div class="timeline-header-right">
+                <span class="company">Nokia</span>
+                <span class="location">Sunnyvale, CA</span>
+              </div>
+            </div>
             <ul>
               <li>Independently replaced and configured a failed server room switch in under 30 minutes during the network engineer's absence, restoring Ethernet connectivity for 10 engineers and avoiding 2+ hours of downtime.</li>
               <li>Re-imaged and enrolled 100+ laptops migrating to the managed corporate image and automated Linux configuration with bash scripts.</li>
@@ -961,8 +1006,16 @@ a:focus {
         <div class="timeline-item">
           <div class="timeline-icon"></div>
           <div class="timeline-content">
-            <h3>Sales Specialist, Tenacity Solutions</h3>
-            <span class="date">Jun 2025 — Sep 2025 &middot; Sacramento, CA</span>
+            <div class="timeline-header">
+              <div class="timeline-header-left">
+                <h3>Sales Specialist</h3>
+                <span class="date">Jun 2025 — Sep 2025</span>
+              </div>
+              <div class="timeline-header-right">
+                <span class="company">Tenacity Solutions</span>
+                <span class="location">Sacramento, CA</span>
+              </div>
+            </div>
             <ul>
               <li>Drove revenue by engaging with customers, identifying their needs, and providing tailored product solutions to boost satisfaction and retention.</li>
               <li>Handled sensitive customer information (PII) during transactions, following company data-handling and privacy procedures.</li>
@@ -973,8 +1026,16 @@ a:focus {
         <div class="timeline-item">
           <div class="timeline-icon"></div>
           <div class="timeline-content">
-            <h3>Help Desk, Ishoni Development Group</h3>
-            <span class="date">Dec 2022 — Jul 2023 &middot; San Jose, CA</span>
+            <div class="timeline-header">
+              <div class="timeline-header-left">
+                <h3>Help Desk</h3>
+                <span class="date">Dec 2022 — Jul 2023</span>
+              </div>
+              <div class="timeline-header-right">
+                <span class="company">Ishoni Development Group</span>
+                <span class="location">San Jose, CA</span>
+              </div>
+            </div>
             <ul>
               <li>Authored internal security awareness articles on phishing identification and password hygiene, helping staff recognize phishing attempts and follow best password practices.</li>
               <li>Resolved ~20 support tickets weekly, troubleshooting desktop, software, printer, and network issues in person and remotely via TeamViewer.</li>
