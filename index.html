@@ -220,6 +220,20 @@ a:focus {
   50% { opacity: 0.4; }
 }
 
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(-12deg); }
+  20% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.wave-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2.5s ease-in-out infinite;
+}
+
 .hero-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -869,8 +883,8 @@ a:focus {
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -880,7 +894,7 @@ a:focus {
   <header class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <h1 class="hero-title">Hi, I'm Vishwa Prakash Choudhary <span aria-hidden="true">👋</span></h1>
+        <h1 class="hero-title">Hi, I'm Vishwa Prakash Choudhary <span class="wave-hand" aria-hidden="true">👋</span></h1>
         <p class="hero-subtitle">
           Computer Science student at UC Davis pursuing entry-level <strong>SOC Analyst</strong> and security
           engineering roles.
@@ -925,6 +939,54 @@ a:focus {
       </div>
     </section>
 
+    <!-- Work Experience Section -->
+    <section id="experience" class="section experience">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h3>IT Intern, Nokia</h3>
+            <span class="date">Jun 2026 — Present &middot; Sunnyvale, CA</span>
+            <ul>
+              <li>Independently replaced and configured a failed server room switch in under 30 minutes during the network engineer's absence, restoring Ethernet connectivity for 10 engineers and avoiding 2+ hours of downtime.</li>
+              <li>Re-imaged and enrolled 100+ laptops migrating to the managed corporate image and automated Linux configuration with bash scripts.</li>
+              <li>Restored and maintained system access for 70+ engineers by troubleshooting recurring Active Directory account lockouts, minimizing downtime across the team.</li>
+              <li>Restored blocked network-share access for 20+ engineers by root-causing connectivity failures to a misconfigured VPN forwarding policy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h3>Sales Specialist, Tenacity Solutions</h3>
+            <span class="date">Jun 2025 — Sep 2025 &middot; Sacramento, CA</span>
+            <ul>
+              <li>Drove revenue by engaging with customers, identifying their needs, and providing tailored product solutions to boost satisfaction and retention.</li>
+              <li>Handled sensitive customer information (PII) during transactions, following company data-handling and privacy procedures.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h3>Help Desk, Ishoni Development Group</h3>
+            <span class="date">Dec 2022 — Jul 2023 &middot; San Jose, CA</span>
+            <ul>
+              <li>Authored internal security awareness articles on phishing identification and password hygiene, helping staff recognize phishing attempts and follow best password practices.</li>
+              <li>Resolved ~20 support tickets weekly, troubleshooting desktop, software, printer, and network issues in person and remotely via TeamViewer.</li>
+              <li>Tracked and documented 30+ hardware assets in SharePoint, keeping inventory records current.</li>
+              <li>Managed the employee access lifecycle by provisioning Microsoft 365 and application access, enrolling new hires in MFA, and revoking access upon departure, ensuring secure access and compliance with company security policies.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="section projects">
       <h2>Projects</h2>
@@ -949,6 +1011,26 @@ a:focus {
         </div>
 
         <div class="project-card">
+          <div class="project-icon">🛡️</div>
+          <h3>SIEM Home Lab: Attack Detection &amp; Analysis</h3>
+          <ul class="project-bullets">
+            <li>Achieved 100% attack detection rate across 3 simulated threat scenarios by deploying Splunk Enterprise SIEM with an rsyslog UDP log forwarding pipeline in an isolated VirtualBox virtual network.</li>
+            <li>Identified 9 exposed network services including FTP, SSH, HTTP, and MySQL by conducting network reconnaissance using Nmap against an intentionally vulnerable Metasploitable 3 target.</li>
+            <li>Captured 1,961 security events and detected brute force activity at 200+ events per minute by configuring Splunk to ingest and parse SSH authentication logs during a Hydra credential attack.</li>
+            <li>Obtained full remote code execution on the target system by exploiting the ProFTPD 1.3.5 mod_copy vulnerability using Metasploit Framework, with attack activity fully logged and visualized in a Splunk dashboard.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Splunk</span>
+            <span class="tag">Metasploit</span>
+            <span class="tag">Nmap</span>
+            <span class="tag">Hydra</span>
+            <span class="tag">VirtualBox</span>
+            <span class="tag">rsyslog</span>
+          </div>
+          <a class="project-link" href="https://github.com/vchoudhary480/siem-home-lab" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
           <div class="project-icon">☁️</div>
           <h3>Cloud Security Hardening (AWS)</h3>
           <ul class="project-bullets">
@@ -967,74 +1049,6 @@ a:focus {
           <a class="project-link" href="https://github.com/vchoudhary480/aws-security-hardening.git" rel="noopener">View on GitHub →</a>
         </div>
 
-        <div class="project-card">
-          <div class="project-icon">🛡️</div>
-          <h3>SIEM Home Lab — Attack Detection &amp; Analysis</h3>
-          <ul class="project-bullets">
-            <li>Achieved 100% attack detection rate across 3 simulated threat scenarios by deploying Splunk Enterprise SIEM with an rsyslog UDP log forwarding pipeline in an isolated VirtualBox virtual network.</li>
-            <li>Identified 9 exposed network services including FTP, SSH, HTTP, and MySQL by conducting network reconnaissance using Nmap against an intentionally vulnerable Metasploitable 3 target.</li>
-            <li>Captured 1,961 security events and detected brute force activity at 200+ events per minute by configuring Splunk to ingest and parse SSH authentication logs during a Hydra credential attack.</li>
-            <li>Obtained full remote code execution on the target system by exploiting the ProFTPD 1.3.5 mod_copy vulnerability using Metasploit Framework, with attack activity fully logged and visualized in a Splunk dashboard.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Splunk</span>
-            <span class="tag">Metasploit</span>
-            <span class="tag">Nmap</span>
-            <span class="tag">Hydra</span>
-            <span class="tag">VirtualBox</span>
-            <span class="tag">rsyslog</span>
-          </div>
-          <a class="project-link" href="https://github.com/vchoudhary480/siem-home-lab" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Work Experience Section -->
-    <section id="experience" class="section experience">
-      <h2>Work Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <h3>IT Intern, Nokia</h3>
-            <span class="date">Jun 2026 — Present &middot; Sunnyvale, CA</span>
-            <ul>
-              <li>Contributing to an ongoing migration of 336 engineering laptops to the managed corporate image, performing remote Windows 11 Autopilot re-imaging and enrollment, and building a PowerShell USB tool to automate hardware-hash extraction for device registration.</li>
-              <li>Resolved recurring Active Directory account lockouts and cross-domain credential conflicts (NSN-INTRA/ENG), and provisioned user access to engineering file shares per team-lead authorization.</li>
-              <li>Troubleshot Samba/CIFS and GlobalProtect VPN access failures, identifying Zscaler VPN policy conflicts as the root cause of blocked network shares, and escalated an internal SSL/TLS certificate expiration alert for timely renewal.</li>
-              <li>Onboarded new-hire and co-op cohorts by imaging workstations, creating domain accounts, and activating network ports for Mechanical and Software Engineering teams.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <h3>Sales Specialist, Tenacity Solutions</h3>
-            <span class="date">Jun 2025 — Sep 2025 &middot; Sacramento, CA</span>
-            <ul>
-              <li>Drove revenue by engaging with customers, identifying their needs, and providing tailored product solutions to boost satisfaction and retention.</li>
-              <li>Handled sensitive customer information (PII) during transactions, following company data-handling and privacy procedures.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <h3>Help Desk, Ishoni Development Group</h3>
-            <span class="date">Dec 2022 — Jul 2023 &middot; San Jose, CA</span>
-            <ul>
-              <li>Provided technical support for desktops, software, printers, and basic network connectivity in a small business environment using TeamViewer, reducing user downtime and maintaining productivity.</li>
-              <li>Installed, configured, and maintained Windows 10 operating systems, Microsoft Office applications, and peripheral devices, which enabled employees to begin work without delays and reduced setup time by streamlining the onboarding process.</li>
-              <li>Diagnosed and resolved user issues through systematic troubleshooting, delivering remote support via TeamViewer and in-person assistance, which restored functionality promptly and kept support tickets within SLA targets.</li>
-              <li>Coordinated hardware procurement and vendor communication, and maintained system and inventory documentation in SharePoint, ensuring accurate asset tracking and uninterrupted support operations.</li>
-            </ul>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -1046,38 +1060,41 @@ a:focus {
           <h3>Programming &amp; Scripting</h3>
           <ul>
             <li>Python</li>
-            <li>Bash</li>
-            <li>SQL (basics)</li>
+            <li>PowerShell</li>
+            <li>Bash scripting</li>
             <li>Git</li>
           </ul>
         </div>
         <div class="skill-category">
           <h3>Security &amp; Analysis Tools</h3>
           <ul>
+            <li>Splunk (SIEM)</li>
             <li>Wireshark</li>
-            <li>Splunk</li>
-            <li>Security Onion</li>
-            <li>Nmap, Metasploit, Snort</li>
+            <li>Nmap</li>
+            <li>Metasploit</li>
+            <li>Hydra</li>
             <li>Kali Linux</li>
           </ul>
         </div>
         <div class="skill-category">
           <h3>Cloud &amp; Infrastructure</h3>
           <ul>
-            <li>AWS (IAM, S3, CloudTrail, GuardDuty)</li>
-            <li>Linux system administration</li>
+            <li>AWS (IAM, S3, CloudTrail, Config)</li>
+            <li>Active Directory</li>
+            <li>Zscaler, VPN</li>
+            <li>DNS, TCP/IP</li>
+            <li>Windows Autopilot</li>
             <li>Virtualization (VirtualBox / VMware)</li>
-            <li>TCP/IP &amp; Networking</li>
+            <li>SharePoint</li>
           </ul>
         </div>
         <div class="skill-category">
           <h3>Concepts</h3>
           <ul>
             <li>Log analysis</li>
-            <li>Incident response</li>
-            <li>MITRE ATT&amp;CK</li>
-            <li>NIST frameworks</li>
-            <li>Cryptography fundamentals</li>
+            <li>Intrusion Detection</li>
+            <li>Vulnerability Assessment</li>
+            <li>LLM</li>
           </ul>
         </div>
       </div>
@@ -1085,7 +1102,6 @@ a:focus {
       <div class="certifications">
         <h3>Certifications</h3>
         <ul>
-          <li><span class="cert-status status-progress">In Progress</span> CompTIA Network+</li>
           <li><span class="cert-status status-progress">In Progress</span> CompTIA Security+</li>
           <li><span class="cert-status status-earned">Earned</span> Google Foundations of Cybersecurity</li>
           <li><span class="cert-status status-earned">Earned</span> Google Play It Safe: Manage Security Risks</li>
