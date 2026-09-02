@@ -933,8 +933,7 @@ a:focus {
       <div class="hero-text">
         <h1 class="hero-title">Hi, I'm Vishwa Prakash Choudhary <span class="wave-hand" aria-hidden="true">👋</span></h1>
         <p class="hero-subtitle">
-          Computer Science student at UC Davis pursuing entry-level <strong>SOC Analyst</strong> and security
-          engineering roles.
+          IT Intern @ <strong>Nokia</strong> | CS Graduate, <Strong>UC Davis</Strong>UC Davis | Seeking <Strong>Cybersecurity Roles</Strong>
         </p>
         <div class="hero-buttons">
           <a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" target="_blank" rel="noopener" class="btn primary-btn linkedin-btn" aria-label="LinkedIn profile">
@@ -995,7 +994,7 @@ a:focus {
               </div>
             </div>
             <ul>
-              <li>Independently replaced and configured a failed server room switch in under 30 minutes during the network engineer's absence, restoring Ethernet connectivity for 10 engineers and avoiding 2+ hours of downtime.</li>
+              <li>Independently replaced and configured a failed server room switch in under 30 minutes during the network engineer's absence, restoring LAN connectivity for 10 engineers and avoiding 2+ hours of downtime.</li>
               <li>Re-imaged and enrolled 100+ laptops migrating to the managed corporate image and automated Linux configuration with bash scripts.</li>
               <li>Restored and maintained system access for 70+ engineers by troubleshooting recurring Active Directory account lockouts, minimizing downtime across the team.</li>
               <li>Restored blocked network-share access for 20+ engineers by root-causing connectivity failures to a misconfigured VPN forwarding policy.</li>
@@ -1037,7 +1036,7 @@ a:focus {
               </div>
             </div>
             <ul>
-              <li>Authored internal security awareness articles on phishing identification and password hygiene, helping staff recognize phishing attempts and follow best password practices.</li>
+              <li>Co-Authored internal security awareness articles on phishing identification and password hygiene, helping staff recognize phishing attempts and follow best password practices.</li>
               <li>Resolved ~20 support tickets weekly, troubleshooting desktop, software, printer, and network issues in person and remotely via TeamViewer.</li>
               <li>Tracked and documented 30+ hardware assets in SharePoint, keeping inventory records current.</li>
               <li>Managed the employee access lifecycle by provisioning Microsoft 365 and application access, enrolling new hires in MFA, and revoking access upon departure, ensuring secure access and compliance with company security policies.</li>
@@ -1057,10 +1056,9 @@ a:focus {
           <div class="project-icon">🌐</div>
           <h3>Wireshark Network Traffic Analysis</h3>
           <ul class="project-bullets">
-            <li>Captured and analyzed network traffic using Wireshark to detect insecure communication over protocols such as FTP and HTTP.</li>
-            <li>Identified security flaws including plaintext credential exposure and DNS request leaks.</li>
-            <li>Compiled a professional report summarizing findings, protocol behaviors, and recommended mitigations.</li>
-            <li>Developed foundational packet inspection and protocol analysis skills used in SOC and threat hunting roles.</li>
+            <li>Exposed a host's browsing history from a 23,991 packet Windows 11 capture by extracting 26 domain names from unencrypted DNS queries, demonstrating that HTTPS conceals page content but not the sites a user visits.</li>
+            <li>Recovered plaintext credentials and 7 lines of command history from a Telnet session by following the TCP stream in Wireshark, then mapped the exposure to MITRE ATT&CK T1040 (Network Sniffing) and T1078 (Valid Accounts).</li>
+            <li>Automated analysis with a Python script that reconstructs Telnet keystrokes, extracts FTP credentials, enumerates DNS queries, and flags insecure ports, then delivered 6 remediations mapped to NIST.</li>
           </ul>
           <div class="tags">
             <span class="tag">Wireshark</span>
@@ -1075,10 +1073,10 @@ a:focus {
           <div class="project-icon">🛡️</div>
           <h3>SIEM Home Lab: Attack Detection &amp; Analysis</h3>
           <ul class="project-bullets">
-            <li>Achieved 100% attack detection rate across 3 simulated threat scenarios by deploying Splunk Enterprise SIEM with an rsyslog UDP log forwarding pipeline in an isolated VirtualBox virtual network.</li>
-            <li>Identified 9 exposed network services including FTP, SSH, HTTP, and MySQL by conducting network reconnaissance using Nmap against an intentionally vulnerable Metasploitable 3 target.</li>
-            <li>Captured 1,961 security events and detected brute force activity at 200+ events per minute by configuring Splunk to ingest and parse SSH authentication logs during a Hydra credential attack.</li>
-            <li>Obtained full remote code execution on the target system by exploiting the ProFTPD 1.3.5 mod_copy vulnerability using Metasploit Framework, with attack activity fully logged and visualized in a Splunk dashboard.</li>
+            <li>Detected 3 of 3 simulated attacks by configuring a Splunk SIEM to ingest rsyslog over UDP 514, mapping recon (T1046), brute force (T1110), and remote code execution (T1190) to MITRE ATT&CK across 1,961 captured security events.</li>
+            <li>Detected SSH brute-force attack in near real-time by surfacing 1,830+ failed-login events in one hour, peaking at 200+ per minute through authentication-log parsing in Splunk.</li>
+            <li>Gained full system access on a target host by enumerating 9 exposed services with Nmap and exploiting a remote code execution flaw with Metasploit.</li>
+            <li>Found 6 major security issues, ranked by severity, and outlined how to fix each one.</li>
           </ul>
           <div class="tags">
             <span class="tag">Splunk</span>
@@ -1095,9 +1093,9 @@ a:focus {
           <div class="project-icon">☁️</div>
           <h3>Cloud Security Hardening (AWS)</h3>
           <ul class="project-bullets">
-            <li>Deployed and secured AWS infrastructure with proper IAM role configurations, least privilege policies, and multi-factor authentication.</li>
-            <li>Implemented S3 bucket encryption, CloudTrail monitoring, and GuardDuty threat detection for continuous visibility.</li>
-            <li>Automated security checks using Python and AWS CLI to identify misconfigurations and enforce compliance baselines.</li>
+            <li>Built 3 Python scripts to audit IAM, S3, and EC2 security groups for common misconfigurations, mapping findings to CIS AWS Benchmark v1.4 controls and outputting severity-rated JSON.</li>
+            <li>Scanned security groups across all AWS regions (not just the default) to catch internet-exposed SSH, RDP, and database ports that region-limited checks miss.</li>
+            <li>Verified detection accuracy by testing the scripts against intentionally misconfigured resources (public CIDR blocks, wildcard S3 policies) and confirming they flagged the expected findings.</li>
             <li>Gained hands-on experience in cloud governance, auditing, and DevSecOps best practices for secure deployments.</li>
           </ul>
           <div class="tags">
