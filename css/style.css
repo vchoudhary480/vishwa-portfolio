@@ -159,10 +159,6 @@ li::marker {
   border:7px solid white;
   box-shadow:0 0 0 1px #c9c3e7,0 15px 45px #30245b12;
   max-width:100%}
-.hero-photo p {
-  font-size:.75rem;
-  color:var(--muted);
-  margin:1.3rem 0 0}
 .hero-buttons {
   display:flex;
   gap:.75rem;
@@ -231,12 +227,6 @@ main {
 .date,.location {
   font-size:.8rem;
   color:var(--muted)}
-.employment-note {
-  font-size:.78rem;
-  color:var(--muted);
-  padding:.65rem .85rem;
-  background:var(--wash);
-  border-left:2px solid var(--accent)}
 .timeline-content ul {
   margin-bottom:0;
   font-size:.91rem;
@@ -340,7 +330,13 @@ main {
   font-size:.77rem;
   color:var(--muted)}
 .education-item {
-  margin-bottom:1.5rem}
+  margin-bottom:1.25rem;
+  padding:1.7rem 2rem;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:10px}
+.education-item:last-child {
+  margin-bottom:0}
 .education-item h3 {
   font-size:1.1rem;
   margin-bottom:.4rem}
@@ -431,10 +427,6 @@ main {
   width:115px;
   height:115px;
   border-width:4px}
-.hero-photo p {
-  max-width:110px;
-  line-height:1.6;
-  margin:0}
 .hero h1 {
   font-size:2.8rem}
 .hero-role {
@@ -445,7 +437,7 @@ main {
   padding:2rem 1.25rem 0}
 .section {
   padding:2.5rem 0}
-.timeline-content {
+.timeline-content,.education-item {
   padding:1.25rem}
 .timeline-header {
   display:block}
@@ -475,7 +467,3 @@ main {
   transition:none!important}
 }
 
-.project-evidence {margin-bottom: 1rem; font-size: .8rem;}
-.project-evidence summary {color: var(--accent); cursor: pointer; min-height: 44px; padding: .65rem 0;}
-.project-evidence img {display: block; max-width: 100%; height: auto; margin: .5rem 0;}
-.project-evidence a span {display: block; padding: .4rem 0;}
