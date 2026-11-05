@@ -1,1259 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vishwa Prakash Choudhary | Aspiring SOC Analyst</title>
-  <meta name="description" content="Computer Science student at UC Davis pursuing SOC Analyst roles. CompTIA Security+ and Network+ in progress. Portfolio of cybersecurity projects in network analysis, cloud security, and threat detection.">
-
-  <!-- Open Graph for LinkedIn / social previews -->
-  <meta property="og:title" content="Vishwa Prakash Choudhary | Portfolio">
-  <meta property="og:description" content="CS student at UC Davis | Aspiring SOC Analyst | Security+ in progress">
-  <meta property="og:image" content="images/profile.jpg">
-  <meta property="og:type" content="website">
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236c63ff'/%3E%3Ctext x='50' y='70' font-family='Arial' font-size='60' font-weight='700' text-anchor='middle' fill='white'%3EV%3C/text%3E%3C/svg%3E">
-
-  <style>
-/* Root colour variables for easy customisation */
-:root {
-  --color-primary: #ffffff;
-  --color-secondary: #f5f2fc;
-  --color-accent: #6c63ff;
-  --color-highlight: #8a7cff;
-  --color-text: #333333;
-  --color-text-soft: #555555;
-  --color-heading: #1f1f1f;
-  --color-background: #faf9ff;
-  --color-border: rgba(108, 99, 255, 0.12);
-  --transition-speed: 0.3s;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 24px rgba(108, 99, 255, 0.12);
-}
-
-/* Global resets */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition-speed);
-}
-
-a:hover,
-a:focus {
-  color: var(--color-highlight);
-}
-
-/* =============================================================
-   NAVBAR
-============================================================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-}
-
-.logo {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  letter-spacing: -0.01em;
-}
-.logo:hover { color: var(--color-accent); }
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.75rem;
-}
-
-.nav-links li a {
-  font-weight: 500;
-  font-size: 0.92rem;
-  color: var(--color-heading);
-  letter-spacing: 0.02em;
-  transition: color var(--transition-speed);
-  padding: 0.25rem 0;
-  position: relative;
-}
-
-.nav-links li a:hover,
-.nav-links li a:focus {
-  color: var(--color-accent);
-}
-
-.nav-links li a.active {
-  color: var(--color-accent);
-}
-.nav-links li a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  border-radius: 2px;
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  flex-direction: column;
-  gap: 5px;
-}
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--color-heading);
-  transition: var(--transition-speed);
-}
-
-/* =============================================================
-   HERO
-============================================================= */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 2rem 4rem;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-background) 100%);
-  overflow: hidden;
-}
-
-/* Subtle decorative blob */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.12) 0%, transparent 60%);
-  filter: blur(40px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  width: min(1100px, 92vw);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-.hero-text {
-  max-width: 640px;
-  text-align: left;
-}
-
-.hero-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background-color: rgba(108, 99, 255, 0.08);
-  border: 1px solid rgba(108, 99, 255, 0.2);
-  border-radius: 999px;
-  font-size: 0.82rem;
-  color: var(--color-accent);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-}
-
-.hero-status::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  background-color: var(--color-accent);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--color-accent);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes wave {
-  0%, 60%, 100% { transform: rotate(0deg); }
-  10%, 30% { transform: rotate(-12deg); }
-  20% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-}
-
-.wave-hand {
-  display: inline-block;
-  transform-origin: 70% 70%;
-  animation: wave 2.5s ease-in-out infinite;
-}
-
-.hero-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--color-heading);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  font-weight: 400;
-  max-width: 580px;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: var(--color-text-soft);
-}
-
-.hero-subtitle strong {
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-.hero-photo {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profile-photo {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--color-primary);
-  box-shadow:
-    0 0 0 4px var(--color-accent),
-    0 12px 32px rgba(108, 99, 255, 0.25);
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.6rem;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  transition: all var(--transition-speed);
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.primary-btn {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-}
-
-.primary-btn:hover,
-.primary-btn:focus {
-  background-color: var(--color-highlight);
-  color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(108, 99, 255, 0.25);
-}
-
-.secondary-btn {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background-color: transparent;
-}
-
-.secondary-btn:hover,
-.secondary-btn:focus {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-}
-
-.linkedin-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.linkedin-btn svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
-
-@media (max-width: 820px) {
-  .hero-inner {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 2rem;
-  }
-  .hero-text { text-align: center; }
-  .hero-buttons { justify-content: center; }
-  .profile-photo { width: 170px; height: 170px; }
-}
-
-/* =============================================================
-   SECTIONS
-============================================================= */
-.section {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto 3rem;
-  background-color: var(--color-primary);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--color-accent);
-  position: relative;
-  letter-spacing: -0.01em;
-}
-
-.section h2::after {
-  content: '';
-  width: 60px;
-  height: 3px;
-  background-color: var(--color-accent);
-  display: block;
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
-.section p {
-  color: var(--color-text);
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-/* =============================================================
-   PROJECTS
-============================================================= */
-.projects .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
-}
-
-.project-card {
-  background-color: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 1.75rem;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover,
-.project-card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
-}
-
-.project-icon {
-  font-size: 2.25rem;
-  margin-bottom: 0.75rem;
-}
-
-.project-card h3 {
-  margin-bottom: 1rem;
-  color: var(--color-heading);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.project-bullets {
-  list-style: none;
-  margin-bottom: 1rem;
-  flex-grow: 1;
-}
-
-.project-bullets li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-
-.project-bullets li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-accent);
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: all var(--transition-speed);
-  align-self: flex-start;
-}
-
-.project-link:hover {
-  border-bottom-color: var(--color-accent);
-  transform: translateX(3px);
-}
-
-.project-link-disabled {
-  color: #999;
-  cursor: not-allowed;
-  pointer-events: none;
-  font-style: italic;
-}
-
-/* =============================================================
-   TIMELINE / EXPERIENCE
-============================================================= */
-.experience .timeline {
-  position: relative;
-  margin: 2rem 0 0;
-  padding-left: 2.5rem;
-}
-
-.experience .timeline::before {
-  content: '';
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--color-accent);
-  opacity: 0.4;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 1.75rem;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-icon {
-  position: absolute;
-  left: -27px;
-  top: 4px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  border: 3px solid var(--color-accent);
-  box-shadow: 0 0 0 4px var(--color-secondary);
-}
-
-.timeline-content {
-  background-color: #fff;
-  padding: 1.25rem 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-}
-
-.timeline-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
-}
-
-.timeline-header-left,
-.timeline-header-right {
-  display: flex;
-  flex-direction: column;
-}
-
-.timeline-header-right {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.timeline-content h3 {
-  margin-bottom: 0.2rem;
-  color: var(--color-heading);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.timeline-content .date {
-  font-size: 0.85rem;
-  color: var(--color-accent);
-  font-weight: 500;
-}
-
-.timeline-content .company {
-  color: var(--color-heading);
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-.timeline-content .location {
-  font-size: 0.85rem;
-  color: var(--color-text-soft);
-}
-
-@media (max-width: 520px) {
-  .timeline-header-right {
-    text-align: left;
-    align-items: flex-start;
-  }
-}
-
-.timeline-content ul {
-  list-style: none;
-}
-
-.timeline-content ul li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-soft);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-
-.timeline-content ul li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-/* =============================================================
-   SKILLS
-============================================================= */
-.skills .skills-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.skill-category {
-  background-color: #fff;
-  padding: 1.25rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  transition: border-color var(--transition-speed), transform var(--transition-speed);
-}
-
-.skill-category:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-2px);
-}
-
-.skill-category h3 {
-  margin-bottom: 0.75rem;
-  color: var(--color-heading);
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.skill-category ul {
-  list-style: none;
-}
-
-.skill-category ul li {
-  padding-left: 1.2rem;
-  position: relative;
-  margin-bottom: 0.4rem;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
-}
-
-.skill-category ul li::before {
-  content: '\2022';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-/* Certifications */
-.certifications h3 {
-  color: var(--color-heading);
-  margin-bottom: 1rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.certifications ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 0.6rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.certifications ul li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.7rem 1rem;
-  background-color: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  color: var(--color-text);
-  font-size: 0.92rem;
-}
-
-.cert-status {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.status-progress {
-  background-color: rgba(245, 158, 11, 0.12);
-  color: #b45309;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.status-planned {
-  background-color: rgba(100, 116, 139, 0.1);
-  color: #64748b;
-  border: 1px solid rgba(100, 116, 139, 0.2);
-}
-
-.status-earned {
-  background-color: rgba(108, 99, 255, 0.1);
-  color: var(--color-accent);
-  border: 1px solid rgba(108, 99, 255, 0.25);
-}
-
-/* =============================================================
-   TAGS
-============================================================= */
-.tags {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tag {
-  background-color: var(--color-secondary);
-  color: var(--color-accent);
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* =============================================================
-   EDUCATION
-============================================================= */
-.education .education-item {
-  background-color: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  transition: border-color var(--transition-speed);
-}
-
-.education .education-item:hover {
-  border-color: var(--color-accent);
-}
-
-.education .education-item:last-child {
-  margin-bottom: 0;
-}
-
-.education .education-item h3 {
-  color: var(--color-heading);
-  margin-bottom: 0.25rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.education .education-item .date {
-  font-size: 0.85rem;
-  color: var(--color-accent);
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.education .education-item p {
-  color: var(--color-text-soft);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* =============================================================
-   CONTACT
-============================================================= */
-.contact {
-  text-align: center;
-}
-
-.pill {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background-color: #111827;
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  margin: 0 auto 1rem;
-  text-transform: uppercase;
-}
-
-.contact-lead {
-  max-width: 720px;
-  margin: 0 auto 2rem;
-  text-align: center;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--color-text-soft);
-}
-
-.quick-links {
-  width: fit-content;
-  margin: 1.5rem auto 0;
-  padding: 0.6rem 0.8rem;
-  background-color: #ffffff;
-  border: 1px solid var(--color-border);
-  border-radius: 9999px;
-  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.12);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.quick-links a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-secondary);
-  color: var(--color-accent);
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all var(--transition-speed);
-}
-
-.quick-links a:hover,
-.quick-links a:focus {
-  background-color: var(--color-accent);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* =============================================================
-   FOOTER
-============================================================= */
-.footer {
-  background-color: var(--color-accent);
-  color: #ffffff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: auto;
-}
-
-.footer p {
-  font-size: 0.85rem;
-  color: #ffffff;
-  margin: 0;
-}
-
-/* =============================================================
-   RESPONSIVE
-============================================================= */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0.85rem 1.25rem;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 60px;
-    right: 1rem;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    gap: 1rem;
-    box-shadow: var(--shadow-md);
-    transform: translateX(120%);
-    transition: transform 0.3s ease;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .section {
-    padding: 2.5rem 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .section h2 {
-    font-size: 1.6rem;
-  }
-
-  .project-card {
-    padding: 1.5rem;
-  }
-
-  .timeline-content {
-    padding: 1rem 1.25rem;
-  }
-
-  .experience .timeline {
-    padding-left: 1.75rem;
-  }
-
-  .timeline-item {
-    padding-left: 1.25rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-</style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vishwa Prakash Choudhary | Security Engineering Portfolio</title>
+<meta name="description" content="Security engineering portfolio of Vishwa Prakash Choudhary, UC Davis Computer Science graduate and Engineering Support Specialist at Nokia. Explore projects in AWS security, Python, IAM, Linux, networking, and threat detection.">
+<link rel="canonical" href="https://vchoudhary480.github.io/vishwa-portfolio/">
+<meta property="og:title" content="Vishwa Prakash Choudhary | Security Engineering Portfolio">
+<meta property="og:description" content="Security engineering portfolio of Vishwa Prakash Choudhary, UC Davis Computer Science graduate and Engineering Support Specialist at Nokia. Explore projects in AWS security, Python, IAM, Linux, networking, and threat detection.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vchoudhary480.github.io/vishwa-portfolio/">
+<meta property="og:image" content="https://vchoudhary480.github.io/vishwa-portfolio/images/profile.jpg">
+<meta property="og:image:alt" content="Vishwa Prakash Choudhary portrait">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vishwa Prakash Choudhary | Security Engineering Portfolio">
+<meta name="twitter:description" content="Security engineering portfolio of Vishwa Prakash Choudhary, UC Davis Computer Science graduate and Engineering Support Specialist at Nokia. Explore projects in AWS security, Python, IAM, Linux, networking, and threat detection.">
+<meta name="twitter:image" content="https://vchoudhary480.github.io/vishwa-portfolio/images/profile.jpg">
+<meta name="theme-color" content="#5146b8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%235146b8'/%3E%3Ctext x='50' y='70' font-family='Arial' font-size='60' text-anchor='middle' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer>
+</script>
 </head>
 <body id="top">
-
-  <!-- Navigation -->
-  <nav class="navbar" aria-label="Primary">
-    <a href="#top" class="logo">Vishwa</a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1 class="hero-title">Hi, I'm Vishwa Prakash Choudhary <span class="wave-hand" aria-hidden="true">👋</span></h1>
-        <p class="hero-subtitle">
-          Engineering Support Specialist @ <strong>Nokia</strong> | CS Graduate, <Strong>UC Davis</Strong> | Seeking <Strong>Cybersecurity Roles</Strong>
-        </p>
-        <div class="hero-buttons">
-          <a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" target="_blank" rel="noopener" class="btn primary-btn linkedin-btn" aria-label="LinkedIn profile">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-          <a href="#projects" class="btn secondary-btn">View Projects</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="images/profile.jpg" alt="Vishwa Prakash Choudhary portrait" class="profile-photo">
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>I am a Computer Science graduate from the University of California, Davis with a strong focus on cybersecurity. My academic background has given me a solid foundation in computer systems, networking, and secure software practices. I am especially interested in understanding how systems are designed, how they can be attacked, and how they can be defended.</p>
-      <p>I am currently working as an Engineering Support Specialist at Nokia, where I have gained hands-on experience with enterprise infrastructure, endpoint management, and network troubleshooting. I have also worked in roles ranging from technical support to sales, where I developed strong communication skills and gained hands-on experience with users and real-world systems. These experiences strengthened my understanding of secure data handling, system reliability, and the importance of protecting sensitive information. I am eager to continue expanding my skills in network and cloud security and contributing to teams focused on building secure, resilient systems.</p>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section education">
-      <h2>Education</h2>
-      <div class="education-item">
-        <h3>University of California, Davis</h3>
-        <span class="date">Graduated August 2026</span>
-        <p>Bachelor of Science in Computer Science.</p>
-        <p>Relevant coursework: Computer &amp; Information Security &amp; Privacy, Computer Networks, Cryptography, Operating Systems.</p>
-      </div>
-      <div class="education-item">
-        <h3>De Anza College</h3>
-        <span class="date">Sep 2022 — Jun 2024</span>
-        <p>Associate's degree in Computer Science.</p>
-      </div>
-    </section>
-
-    <!-- Work Experience Section -->
-    <section id="experience" class="section experience">
-      <h2>Work Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div class="timeline-header-left">
-                <h3>Engineering Support Specialist</h3>
-                <span class="date">Jun 2026 — Present</span>
-              </div>
-              <div class="timeline-header-right">
-                <span class="company">Nokia</span>
-                <span class="location">Sunnyvale, CA</span>
-              </div>
-            </div>
-            <ul>
-              <li>Independently replaced and configured a failed server room switch in under 30 minutes during the network engineer's absence, restoring LAN connectivity for 10 engineers and avoiding 2+ hours of downtime.</li>
-              <li>Re-imaged and enrolled 100+ laptops migrating to the managed corporate image and automated Linux configuration with bash scripts.</li>
-              <li>Restored and maintained system access for 70+ engineers by troubleshooting recurring Active Directory account lockouts, minimizing downtime across the team.</li>
-              <li>Restored blocked network-share access for 20+ engineers by root-causing connectivity failures to a misconfigured VPN forwarding policy.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div class="timeline-header-left">
-                <h3>Sales Specialist</h3>
-                <span class="date">Jun 2025 — Sep 2025</span>
-              </div>
-              <div class="timeline-header-right">
-                <span class="company">Tenacity Solutions</span>
-                <span class="location">Sacramento, CA</span>
-              </div>
-            </div>
-            <ul>
-              <li>Drove revenue by engaging with customers, identifying their needs, and providing tailored product solutions to boost satisfaction and retention.</li>
-              <li>Handled sensitive customer information (PII) during transactions, following company data-handling and privacy procedures.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <div class="timeline-header-left">
-                <h3>Technical Support Specialist</h3>
-                <span class="date">Dec 2022 — Jul 2023</span>
-              </div>
-              <div class="timeline-header-right">
-                <span class="company">Ishoni Development Group</span>
-                <span class="location">San Jose, CA</span>
-              </div>
-            </div>
-            <ul>
-              <li>Co-Authored internal security awareness articles on phishing identification and password hygiene, helping staff recognize phishing attempts and follow best password practices.</li>
-              <li>Resolved ~20 support tickets weekly, troubleshooting desktop, software, printer, and network issues in person and remotely via TeamViewer.</li>
-              <li>Tracked and documented 30+ hardware assets in SharePoint, keeping inventory records current.</li>
-              <li>Managed the employee access lifecycle by provisioning Microsoft 365 and application access, enrolling new hires in MFA, and revoking access upon departure, ensuring secure access and compliance with company security policies.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-
-        <div class="project-card">
-          <div class="project-icon">🌐</div>
-          <h3>Wireshark Network Traffic Analysis</h3>
-          <ul class="project-bullets">
-            <li>Exposed a host's browsing history from a 23,991 packet Windows 11 capture by extracting 26 domain names from unencrypted DNS queries, demonstrating that HTTPS conceals page content but not the sites a user visits.</li>
-            <li>Recovered plaintext credentials and 7 lines of command history from a Telnet session by following the TCP stream in Wireshark, then mapped the exposure to MITRE ATT&CK T1040 (Network Sniffing) and T1078 (Valid Accounts).</li>
-            <li>Automated analysis with a Python script that reconstructs Telnet keystrokes, extracts FTP credentials, enumerates DNS queries, and flags insecure ports, then delivered 6 remediations mapped to NIST.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Wireshark</span>
-            <span class="tag">tcpdump</span>
-            <span class="tag">Python</span>
-            <span class="tag">Network Forensics</span>
-          </div>
-          <a class="project-link" href="https://github.com/vchoudhary480/Wireshark-Network-Analysis" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-
-        <div class="project-card">
-          <div class="project-icon">🛡️</div>
-          <h3>SIEM Home Lab: Attack Detection &amp; Analysis</h3>
-          <ul class="project-bullets">
-            <li>Detected 3 of 3 simulated attacks by configuring a Splunk SIEM to ingest rsyslog over UDP 514, mapping recon (T1046), brute force (T1110), and remote code execution (T1190) to MITRE ATT&CK across 1,961 captured security events.</li>
-            <li>Detected SSH brute-force attack in near real-time by surfacing 1,830+ failed-login events in one hour, peaking at 200+ per minute through authentication-log parsing in Splunk.</li>
-            <li>Gained full system access on a target host by enumerating 9 exposed services with Nmap and exploiting a remote code execution flaw with Metasploit.</li>
-            <li>Found 6 major security issues, ranked by severity, and outlined how to fix each one.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Splunk</span>
-            <span class="tag">Metasploit</span>
-            <span class="tag">Nmap</span>
-            <span class="tag">Hydra</span>
-            <span class="tag">VirtualBox</span>
-            <span class="tag">rsyslog</span>
-          </div>
-          <a class="project-link" href="https://github.com/vchoudhary480/siem-home-lab" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-
-        <div class="project-card">
-          <div class="project-icon">☁️</div>
-          <h3>Cloud Security Hardening (AWS)</h3>
-          <ul class="project-bullets">
-            <li>Built 3 Python scripts to audit IAM, S3, and EC2 security groups for common misconfigurations, mapping findings to CIS AWS Benchmark v1.4 controls and outputting severity-rated JSON.</li>
-            <li>Scanned security groups across all AWS regions (not just the default) to catch internet-exposed SSH, RDP, and database ports that region-limited checks miss.</li>
-            <li>Verified detection accuracy by testing the scripts against intentionally misconfigured resources (public CIDR blocks, wildcard S3 policies) and confirming they flagged the expected findings.</li>
-            <li>Gained hands-on experience in cloud governance, auditing, and DevSecOps best practices for secure deployments.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">AWS</span>
-            <span class="tag">IAM</span>
-            <span class="tag">CloudTrail</span>
-            <span class="tag">GuardDuty</span>
-            <span class="tag">Python</span>
-          </div>
-          <a class="project-link" href="https://github.com/vchoudhary480/aws-security-hardening.git" rel="noopener">View on GitHub →</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-      <h2>Skills &amp; Certifications</h2>
-      <div class="skills-list">
-        <div class="skill-category">
-          <h3>Programming &amp; Scripting</h3>
-          <ul>
-            <li>Python</li>
-            <li>PowerShell</li>
-            <li>Bash scripting</li>
-            <li>Git</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Security &amp; Analysis Tools</h3>
-          <ul>
-            <li>Splunk (SIEM)</li>
-            <li>Wireshark</li>
-            <li>Nmap</li>
-            <li>Metasploit</li>
-            <li>Hydra</li>
-            <li>Kali Linux</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Cloud &amp; Infrastructure</h3>
-          <ul>
-            <li>AWS (IAM, S3, CloudTrail, Config)</li>
-            <li>Active Directory</li>
-            <li>Zscaler, VPN</li>
-            <li>DNS, TCP/IP</li>
-            <li>Windows Autopilot</li>
-            <li>Virtualization (VirtualBox / VMware)</li>
-            <li>SharePoint</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Concepts</h3>
-          <ul>
-            <li>Log analysis</li>
-            <li>Intrusion Detection</li>
-            <li>Vulnerability Assessment</li>
-            <li>LLM</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="certifications">
-        <h3>Certifications</h3>
-        <ul>
-          <li><span class="cert-status status-progress">In Progress</span> CompTIA Security+</li>
-          <li><span class="cert-status status-earned">Earned</span> Google Foundations of Cybersecurity</li>
-          <li><span class="cert-status status-earned">Earned</span> Google Play It Safe: Manage Security Risks</li>
-          <li><span class="cert-status status-earned">Earned</span> AIG Shields Up: Cybersecurity Job Simulation</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-      <div class="pill">Contact</div>
-      <h2>Get in Touch</h2>
-
-      <p class="contact-lead">
-        I'm currently working as an Engineering Support Specialist at Nokia and actively seeking full-time SOC Analyst, Security Engineer, or IT Security roles.
-        Shoot me an <a href="mailto:vpc8848@gmail.com">email</a> ✉️ or connect with me on
-        <a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" target="_blank" rel="noopener">LinkedIn</a>.
-      </p>
-
-      <nav class="quick-links" aria-label="Quick links">
-        <a href="#top" title="Home" aria-label="Home">🏠</a>
-        <a href="#about" title="About" aria-label="About">📄</a>
-        <a href="#projects" title="Projects" aria-label="Projects">🧩</a>
-        <a href="#experience" title="Experience" aria-label="Experience">💼</a>
-        <a href="mailto:vpc8848@gmail.com" title="Email" aria-label="Email">✉️</a>
-        <a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">in</a>
-      </nav>
-    </section>
-  </main>
-
-  <script>
-/*
-  Portfolio interactions
-  - Updates copyright year
-  - Mobile nav toggle
-  - Highlights active nav link based on scroll
-*/
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Update copyright year
-  const yearSpan = document.getElementById('current-year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  // Mobile nav toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close menu when a link is clicked (mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  // Highlight active nav link as the user scrolls
-  const sections = document.querySelectorAll('main section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
-
-  function activateNavLink() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    let currentId = '';
-
-    sections.forEach((section) => {
-      const offsetTop = section.offsetTop - 150;
-      const offsetBottom = offsetTop + section.offsetHeight;
-      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-        currentId = section.getAttribute('id');
-      }
-    });
-
-    navAnchors.forEach((link) => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', activateNavLink, { passive: true });
-  activateNavLink();
-});
-
-</script>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="navbar" aria-label="Primary">
+<a href="#top" class="logo">Vishwa<span> / Portfolio</span>
+</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-links" hidden>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+<ul class="nav-links" id="primary-links">
+<li>
+<a href="#about">About</a>
+</li>
+<li>
+<a href="#experience">Experience</a>
+</li>
+<li>
+<a href="#projects">Projects</a>
+</li>
+<li>
+<a href="#skills">Skills</a>
+</li>
+<li>
+<a href="#education">Education</a>
+</li>
+<li>
+<a href="#contact">Contact</a>
+</li>
+</ul>
+</nav>
+<header class="hero">
+<div class="hero-inner">
+<div class="hero-text">
+<p class="eyebrow">Security Engineering Portfolio</p>
+<h1>Vishwa Prakash<br>Choudhary</h1>
+<p class="hero-role">Engineering Support Specialist @ <strong>Nokia</strong>
+</p>
+<p class="hero-subtitle">
+<strong>Security Engineering</strong>
+<br>AWS, IAM, Linux &amp; Networking<br>UC Davis CS Graduate</p>
+<p class="hero-intro">Enterprise infrastructure experience.<br>Practical security projects. Engineering focus.</p>
+<div class="hero-buttons">
+<a href="#projects" class="btn primary-btn">View My Projects <span aria-hidden="true">↓</span>
+</a>
+<a href="https://github.com/vchoudhary480" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+<a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</div>
+</div>
+<div class="hero-photo">
+<img src="images/profile.jpg" alt="Vishwa Prakash Choudhary portrait" width="280" height="280" class="profile-photo">
+<p>Infrastructure · Identity · Cloud</p>
+</div>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section id="about" class="section">
+<p class="eyebrow">01 / Background</p>
+<h2>About Me</h2>
+<div class="about-copy">
+<p>I'm a Computer Science graduate from UC Davis with hands-on experience in enterprise IT infrastructure, networking, access management, and endpoint security.</p>
+<p>At Nokia, I support engineering teams through network switch configuration, role-based VMware access management, and corporate endpoint deployment. My work also includes configuring Linux workstations with existing setup scripts and installing Wazuh agents for centralized security monitoring.</p>
+<p>Outside work, I build cybersecurity projects involving AWS security auditing, Python automation, network traffic analysis, and threat detection.</p>
+<p>I'm pursuing opportunities in Security Engineering, particularly Cloud Security, IAM, and Infrastructure Security. My long-term goal is to become a Cloud Security Architect.</p>
+</div>
+</section>
+<section id="experience" class="section experience">
+<p class="eyebrow">02 / Enterprise experience</p>
+<h2>Work Experience</h2>
+<div class="timeline">
+<article class="timeline-item">
+<div class="timeline-icon" aria-hidden="true">
+</div>
+<div class="timeline-content">
+<div class="timeline-header">
+<div>
+<h3>Engineering Support Specialist</h3>
+<span class="date">June 2026 – Present</span>
+</div>
+<div>
+<p class="company">Nokia · Client assignment</p>
+<span class="location">Sunnyvale, CA</span>
+</div>
+</div>
+<p class="employment-note">Contracting employer: Datanet IT · Formal designation: Desktop Support Intern</p>
+<ul>
+<li>Restored network connectivity for 10 engineers in under 30 minutes by replacing and configuring a failed network switch.</li>
+<li>Managed role-based access to 50+ VMware virtual machines, granting and removing user permissions during employee onboarding and offboarding.</li>
+<li>Installed and configured multiple network switches alongside network engineers, enabling connectivity for new workstations and network devices.</li>
+<li>Deployed and enrolled 100+ corporate laptops using standardized system images to maintain consistent endpoint configurations.</li>
+<li>Configured 20+ Linux workstations using setup scripts and installed Wazuh agents for centralized security monitoring.</li>
+</ul>
+</div>
+</article>
+<article class="timeline-item">
+<div class="timeline-icon" aria-hidden="true">
+</div>
+<div class="timeline-content">
+<div class="timeline-header">
+<div>
+<h3>Sales Specialist</h3>
+<span class="date">June 2025 – September 2025</span>
+</div>
+<div>
+<p class="company">Tenacity Solutions</p>
+<span class="location">Sacramento, CA</span>
+</div>
+</div>
+<ul>
+<li>Handled sensitive customer information (PII) during transactions while following company data-handling and privacy procedures.</li>
+</ul>
+</div>
+</article>
+<article class="timeline-item">
+<div class="timeline-icon" aria-hidden="true">
+</div>
+<div class="timeline-content">
+<div class="timeline-header">
+<div>
+<h3>Technical Support Specialist</h3>
+<span class="date">December 2022 – July 2023</span>
+</div>
+<div>
+<p class="company">Ishoni Development Group</p>
+<span class="location">San Jose, CA</span>
+</div>
+</div>
+<ul>
+<li>Managed employee access in Microsoft 365 and business applications, including multi-factor authentication (MFA) enrollment and access removal.</li>
+<li>Co-authored employee security awareness articles on phishing prevention and password security.</li>
+<li>Resolved approximately 20 IT support tickets weekly, troubleshooting hardware, software, and network issues onsite and remotely.</li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+<section id="projects" class="section projects">
+<p class="eyebrow">03 / Selected technical work</p>
+<h2>Projects</h2>
+<p class="section-lead">Tools, investigations, and controlled labs—with source code and documented findings.</p>
+<div class="project-grid">
+<article class="project-card">
+<p class="eyebrow">01 · Cloud security</p>
+<h3>AWS Security Misconfiguration Scanner</h3>
+<p>Built a Python-based AWS security auditing tool to identify misconfigurations across IAM, S3, and EC2.</p>
+<ul>
+<li>Developed 3 Python (Boto3) audit modules and an orchestrator that generates JSON reports with severity ratings.</li>
+<li>Scanned enabled AWS regions for internet-exposed SSH, RDP, and database ports; checked IAM credentials and S3 access configurations.</li>
+<li>Added 18 automated tests, including Moto-based AWS mocks, and a GitHub Actions pipeline for linting, syntax checks, and tests.</li>
+</ul>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">AWS</span>
+<span class="tag">Boto3</span>
+<span class="tag">IAM</span>
+<span class="tag">S3</span>
+<span class="tag">EC2</span>
+<span class="tag">GitHub Actions</span>
+</div>
+<details class="project-evidence"><summary>View project evidence</summary><a href="https://github.com/vchoudhary480/aws-security-hardening/blob/df757e29e8091d41866094df3e2b9fc1fc1df453/screenshots/02_full_audit_summary.png" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/vchoudhary480/aws-security-hardening/df757e29e8091d41866094df3e2b9fc1fc1df453/screenshots/02_full_audit_summary.png" alt="AWS audit console summary from the project repository" loading="lazy" decoding="async"><span>Open original screenshot ↗</span></a></details>
+<a class="project-link" href="https://github.com/vchoudhary480/aws-security-hardening" target="_blank" rel="noopener noreferrer" aria-label="View AWS Security Misconfiguration Scanner on GitHub">View repository <span aria-hidden="true">↗</span>
+</a>
+</article>
+<article class="project-card">
+<p class="eyebrow">02 · Network security</p>
+<h3>Wireshark Network Traffic Analysis</h3>
+<p>Built a Python-based traffic analysis tool to identify insecure protocols, exposed credentials, and potential security issues.</p>
+<ul>
+<li>Analyzed captured traffic in Wireshark to identify plaintext credentials and insecure connections.</li>
+<li>Recovered Telnet credentials and 7 lines of user input, including login details and commands, from a public sample capture.</li>
+<li>Developed Python checks for FTP credentials, DNS queries, and insecure ports; documented 6 recommended security fixes.</li>
+</ul>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Wireshark</span>
+<span class="tag">TCP/IP</span>
+<span class="tag">DNS</span>
+<span class="tag">FTP</span>
+<span class="tag">Network Security</span>
+</div>
+<details class="project-evidence"><summary>View project evidence</summary><a href="https://github.com/vchoudhary480/Wireshark-Network-Analysis/blob/4adc810c4001c20b7febc853351762ae1256a7f8/screenshots/telnet_tcp_stream.png" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/vchoudhary480/Wireshark-Network-Analysis/4adc810c4001c20b7febc853351762ae1256a7f8/screenshots/telnet_tcp_stream.png" alt="Wireshark TCP stream showing the public sample Telnet session" loading="lazy" decoding="async"><span>Open original screenshot ↗</span></a></details>
+<a class="project-link" href="https://github.com/vchoudhary480/Wireshark-Network-Analysis" target="_blank" rel="noopener noreferrer" aria-label="View Wireshark Network Traffic Analysis on GitHub">View repository <span aria-hidden="true">↗</span>
+</a>
+</article>
+<article class="project-card">
+<p class="eyebrow">03 · Security validation</p>
+<h3>SIEM Home Lab: Attack Detection &amp; Analysis</h3>
+<p>Built a Splunk SIEM lab to simulate and investigate cybersecurity attacks in a controlled environment.</p>
+<ul>
+<li>Detected all 3 simulated attacks by analyzing 1,961 security events in Splunk.</li>
+<li>Identified 9 exposed network services using Nmap and validated a remote code execution vulnerability with Metasploit.</li>
+<li>Analyzed brute-force login attempts and documented security findings and recommended fixes.</li>
+</ul>
+<div class="tags">
+<span class="tag">Splunk</span>
+<span class="tag">Linux</span>
+<span class="tag">Nmap</span>
+<span class="tag">Metasploit</span>
+<span class="tag">Hydra</span>
+<span class="tag">VirtualBox</span>
+</div>
+<details class="project-evidence"><summary>View project evidence</summary><a href="https://github.com/vchoudhary480/siem-home-lab/blob/4bb543510af03675f0d0481058bd28e2aa6c3769/screenshots/13c76eeb-3b96-408f-a3f4-7c80d57f447f.jpg" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/vchoudhary480/siem-home-lab/4bb543510af03675f0d0481058bd28e2aa6c3769/screenshots/13c76eeb-3b96-408f-a3f4-7c80d57f447f.jpg" alt="Splunk lab dashboard from the project repository" loading="lazy" decoding="async"><span>Open original screenshot ↗</span></a></details>
+<a class="project-link" href="https://github.com/vchoudhary480/siem-home-lab" target="_blank" rel="noopener noreferrer" aria-label="View SIEM Home Lab: Attack Detection &amp; Analysis on GitHub">View repository <span aria-hidden="true">↗</span>
+</a>
+</article>
+</div>
+</section>
+<section id="skills" class="section skills">
+<p class="eyebrow">04 / Technical foundation</p>
+<h2>Technical Skills</h2>
+<div class="skills-list">
+<article class="skill-category">
+<h3>Cloud &amp; Identity</h3>
+<ul>
+<li>AWS: IAM, S3, EC2</li>
+<li>Role-Based Access Control (RBAC)</li>
+<li>Multi-factor authentication (MFA)</li>
+<li>Microsoft 365 access management</li>
+</ul>
+</article>
+<article class="skill-category">
+<h3>Security Tools</h3>
+<ul>
+<li>Wazuh agent deployment</li>
+<li>Splunk · Wireshark</li>
+<li>Nmap · Metasploit · Hydra</li>
+<li>Vulnerability assessment</li>
+</ul>
+</article>
+<article class="skill-category">
+<h3>Networking &amp; Infrastructure</h3>
+<ul>
+<li>Linux · Windows</li>
+<li>VMware vSphere permissions</li>
+<li>Network configuration &amp; troubleshooting</li>
+<li>DNS · TCP/IP</li>
+</ul>
+</article>
+<article class="skill-category">
+<h3>Programming &amp; Tooling</h3>
+<ul>
+<li>Python · Boto3 · Scapy</li>
+<li>Git · GitHub Actions</li>
+<li>Bash setup script execution</li>
+</ul>
+</article>
+</div>
+<div class="credentials">
+<h3>Learning &amp; Credentials</h3>
+<div class="credential-grid">
+<article>
+<h4>Certification in Progress</h4>
+<p>CompTIA Security+ (SY0-701)</p>
+<span class="credential-note">Preparing for exam</span>
+</article>
+<article>
+<h4>Completed Courses</h4>
+<ul>
+<li>Google Foundations of Cybersecurity</li>
+<li>Google Play It Safe: Manage Security Risks</li>
+</ul>
+</article>
+<article>
+<h4>Practical Simulations</h4>
+<p>AIG Shields Up: Cybersecurity Job Simulation</p>
+<span class="credential-note">Completed job simulation</span>
+</article>
+</div>
+</div>
+</section>
+<section id="education" class="section education">
+<p class="eyebrow">05 / Education</p>
+<h2>Education</h2>
+<div class="education-item">
+<h3>University of California, Davis</h3>
+<span class="date">Graduated August 2026</span>
+<p>Bachelor of Science in Computer Science.</p>
+<p>Relevant coursework: Computer &amp; Information Security &amp; Privacy, Computer Networks, Cryptography, Operating Systems.</p>
+</div>
+<div class="education-item">
+<h3>De Anza College</h3>
+<span class="date">Sep 2022 — Jun 2024</span>
+<p>Associate's degree in Computer Science.</p>
+</div>
+</section>
+<section id="contact" class="section contact">
+<p class="eyebrow">06 / Connect</p>
+<h2>Let's build secure systems.</h2>
+<p class="contact-lead">I'm currently supporting enterprise infrastructure at Nokia and pursuing opportunities in Security Engineering, Cloud Security, IAM, and Infrastructure Security. I'm interested in connecting with technical recruiters, engineering teams, and professionals building secure systems.</p>
+<div class="hero-buttons">
+<a href="mailto:vpc8848@gmail.com" class="btn primary-btn">Email me</a>
+<a href="https://www.linkedin.com/in/vishwa-prakash-choudhary-541036291/" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a href="https://github.com/vchoudhary480" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p>© <span id="current-year">2026</span> Vishwa Prakash Choudhary</p>
+<a href="#top">Back to top ↑</a>
+</footer>
 </body>
 </html>

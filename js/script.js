@@ -1,61 +1,51 @@
-/*
-  Portfolio interactions
-  - Updates copyright year
-  - Mobile nav toggle
-  - Highlights active nav link based on scroll
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
+  const year = document.getElementById('current-year');
+  if (year) year.textContent = new Date().getFullYear();
 
-  // Update copyright year
-  const yearSpan = document.getElementById('current-year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  // Mobile nav toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', isOpen);
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-links');
+  if (toggle && menu) {
+    toggle.hidden = false;
+    menu.classList.add('collapsible');
+    const closeMenu = () => {
+      menu.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-
-    // Close menu when a link is clicked (mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  // Highlight active nav link as the user scrolls
-  const sections = document.querySelectorAll('main section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
-
-  function activateNavLink() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    let currentId = '';
-
-    sections.forEach((section) => {
-      const offsetTop = section.offsetTop - 150;
-      const offsetBottom = offsetTop + section.offsetHeight;
-      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-        currentId = section.getAttribute('id');
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.classList.contains('active')) {
+        closeMenu();
+        toggle.focus();
       }
     });
-
-    navAnchors.forEach((link) => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      }
+    document.addEventListener('click', event => {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) closeMenu();
     });
   }
 
-  window.addEventListener('scroll', activateNavLink, { passive: true });
-  activateNavLink();
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const links = [...document.querySelectorAll('.nav-links a')];
+  let scheduled = false;
+  const updateActive = () => {
+    const position = window.scrollY + 130;
+    const current = sections.filter(section => section.offsetTop <= position).pop();
+    links.forEach(link => {
+      const active = current && link.hash === `#${current.id}`;
+      link.classList.toggle('active', Boolean(active));
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    scheduled = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(updateActive);
+    }
+  }, { passive: true });
+  updateActive();
 });
